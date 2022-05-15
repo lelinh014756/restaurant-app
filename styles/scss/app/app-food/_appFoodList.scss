@@ -1,0 +1,28 @@
+.app-food-list {
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 42px;
+        padding: 40px 0 60px;
+    }
+    .app-food-list-desc {
+        @include text24;
+        line-height: 36px;
+        color: $textColor;
+        width: 70%;
+        text-align: center;
+        margin-bottom: 32px;
+    }
+    .app-food-list-wrapper {
+        padding: 0 6%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}

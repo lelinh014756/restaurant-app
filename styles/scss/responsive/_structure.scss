@@ -1,0 +1,14 @@
+.wrapper-content {
+  margin: 0 auto;
+}
+
+.grid-content {
+}
+
+.height-content {
+  height: calc(100vh - $headerHeightMobile - $navbarHeightMobile);
+}
+
+.paddingTop-header {
+  padding-top: $headerHeightMobile;
+}

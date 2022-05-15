@@ -1,0 +1,32 @@
+.app-food-card {
+  justify-self: flex-start;
+  width: 25%;
+  @include flexCenterY;
+  padding: 40px 60px;
+  cursor: pointer;
+  .app-food-card-img {
+    & img {
+      @include rounded(50%);
+    }
+  }
+
+  .app-food-card-title {
+    @include text24;
+    padding: 16px 0 20px;
+    font-weight: 800;
+    color: $primaryColor;
+  }
+
+  .app-food-card-price {
+    @include text20;
+    margin-bottom: 14px;
+    font-weight: 800;
+    color: $titleColor;
+  }
+
+  .app-food-card-desc {
+    color: $titleLightColor;
+    text-align: center;
+    width: 80%;
+  }
+}

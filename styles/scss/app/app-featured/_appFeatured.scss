@@ -1,0 +1,24 @@
+.app-featured {
+  width: 100%;
+  height: calc(100vh - $headerHeightDesktop);
+  .app-featured-image {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper .swiper-wrapper {
+    @include translate3d((0px, 0px, 0px));
+  }
+
+  .swiper-slide {
+    width: 100%;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white;
+  }
+}

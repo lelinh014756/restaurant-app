@@ -6,7 +6,7 @@
 }
 
 .height-content {
-  height: calc(100vh - $headerHeightMobile - $navbarHeightMobile);
+  height: calc(100vh - $headerHeightDesktop);
 }
 
 .paddingTop-header {

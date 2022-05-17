@@ -1,6 +1,9 @@
 .app-featured {
   width: 100%;
-  height: calc(100vh - $headerHeightDesktop);
+  height: calc(50vh - $headerHeightDesktop);
+  @include sm {
+    height: calc(100vh - $headerHeightDesktop);
+  }
   .app-featured-image {
     width: 100%;
     height: 100%;

@@ -1,0 +1,125 @@
+.product {
+  display: flex;
+  height: auto;
+  text-align: center;
+  flex-direction: column;
+  @include sm {
+    height: calc(100vh - $headerHeightDesktop);
+    text-align: unset;
+    flex-direction: unset;
+  }
+  .product-image {
+    flex: 1;
+    height: 100%;
+    @include flexCenterX;
+    &-wrapper {
+      width: 70vw;
+      height: 70vw;
+      position: relative;
+      border: 1px solid $primaryColor;
+      margin-top: 20px;
+      @include rounded(10%);
+      @include sm {
+        width: 80%;
+        height: 80%;
+        margin-top: unset;
+      }
+      img {
+        @include rounded(10%);
+      }
+    }
+  }
+  .product-information {
+    flex: 1;
+    padding: 20px;
+    &-name {
+      text-transform: uppercase;
+      @include text36;
+      font-weight: bold;
+      margin: 8px 0 32px;
+      @include sm {
+        margin-top: 42px;
+      }
+    }
+    &-price {
+      color: $primaryColor;
+      @include text24;
+      font-weight: 400;
+      border-bottom: 1px solid $primaryColor;
+      margin-bottom: 22px;
+    }
+    &-desc {
+      margin: 26px 0 22px;
+      @include xl {
+        width: 80%;
+      }
+    }
+    &-choose {
+      font-weight: bold;
+      @include text20;
+      margin-bottom: 20px;
+    }
+    &-sizes {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      gap: 0 38px;
+      @include sm {
+        gap: 0 30px;
+        justify-content: flex-start;
+      }
+    }
+    &-size {
+      width: 40px;
+      height: 40px;
+      border: 3px solid $primaryColor;
+      background: white;
+      font-weight: bold;
+      color: $primaryColor;
+      @include rounded(50%);
+      @include flexCenterX;
+      cursor: pointer;
+    }
+    &-ingredients {
+      display: flex;
+      margin-bottom: 30px;
+      flex-direction: column;
+      @include sm {
+        flex-direction: unset;
+      }
+    }
+    &-option {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 500;
+      gap: 0 3px;
+      margin: 10px;
+      @include sm {
+        margin: 0;
+        margin-right: 14px;
+      }
+    }
+    &-checkbox {
+      width: 20px;
+      height: 20px;
+    }
+    &-actions {
+      display: flex;
+      gap: 0 6px;
+      justify-content: center;
+      @include sm {
+        justify-content: unset;
+      }
+      input {
+        width: 70px;
+      }
+      button {
+        margin: 0;
+        @include sm {
+        }
+      }
+    }
+  }
+}

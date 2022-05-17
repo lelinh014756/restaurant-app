@@ -1,9 +1,14 @@
 .app-food-card {
   justify-self: flex-start;
-  width: 25%;
+  width: 100%;
   @include flexCenterY;
-  padding: 40px 60px;
+  padding-block: 40px;
   cursor: pointer;
+  padding-inline: 36px;
+  @include sm {
+    width: 25%;
+    padding-inline: 60px;
+  }
   .app-food-card-img {
     & img {
       @include rounded(50%);
@@ -28,5 +33,9 @@
     color: $titleLightColor;
     text-align: center;
     width: 80%;
+    @include text20;
+    @include sm {
+      @include text18;
+    }
   }
 }

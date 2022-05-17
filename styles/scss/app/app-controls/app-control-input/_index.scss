@@ -1,0 +1,9 @@
+.input {
+  height: 40px;
+  border: 1px solid $grayLightColor;
+  color: $grayDarkColor;
+  padding: 0 8px;
+  @include rounded(4px);
+}
+
+@import "./ControlNumber.scss";

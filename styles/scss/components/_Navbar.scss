@@ -3,7 +3,10 @@
   padding-inline: 50px;
   @include flexBetweenX;
   .navbar-item-contact {
-    flex: 1;
+    flex: 3;
+    @include sm {
+      flex: 1;
+    }
     display: flex;
     align-items: center;
     & i {
@@ -31,17 +34,20 @@
   }
   .navbar-item-list {
     flex: 3;
-    @include flexCenterX;
+    display: none;
     gap: 0 40px;
     color: white;
+    @include sm {
+      @include flexCenterX;
+    }
     & li {
       font-weight: 500;
       cursor: pointer;
     }
   }
   .navbar-item-cart {
-    flex: 1;
     display: flex;
+    flex: 1;
     justify-content: flex-end;
     position: relative;
     cursor: pointer;

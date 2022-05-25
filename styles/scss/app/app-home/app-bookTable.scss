@@ -1,0 +1,42 @@
+.app-bookTable {
+    height: 80vh;
+    width: 100%;
+    background-color: $secondaryColor;
+    position: relative;
+    @include flexCenterX;
+    &-logo {
+        position: absolute;
+        top: -40px;
+        right: 151px;
+    }
+    &-form {
+        text-align: center;
+        padding: 48px 32px;
+        background-color: $grayDarkColor;
+        border: 1px solid rgba(220, 202, 135, 20%);
+        @include flexCenterY;
+        h5 {
+            font-size: 23px;
+            color: white;
+            font-family: $cormorantFont;
+            margin-bottom: 8px;
+        }
+        h1 {
+            font-size: 64px;
+            color: $primaryColor;
+            font-family: $cormorantFont;
+            font-weight: bold;
+            margin-top: 8px;
+            margin-bottom: 64px;
+        }
+        &-group {
+            margin-bottom: 72px;
+            width: 100%;
+            @include flexCenterX;
+            gap: 0 32px;
+            input {
+                flex: 1;
+            }
+        }
+    }
+}

@@ -34,6 +34,7 @@ html {
 body {
 	box-sizing: border-box;
 	overflow-y: auto;
+	overflow-x: unset;
 	height: 100%;
 }
 ol, ul, li {

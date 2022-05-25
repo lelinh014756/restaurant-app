@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
+import GetLayout from '../helpers/getLayout';
 
-const about = () => {
-    return (
-        <div>
-            Welcome to About!
-        </div>
-    );
+const About = () => {
+  return <div>Welcome to About!</div>;
 };
 
-export default about;
+export default About;
+
+GetLayout(About);

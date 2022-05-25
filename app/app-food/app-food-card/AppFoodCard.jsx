@@ -1,17 +1,24 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-const AppFoodCard = () => {
+const AppFoodCard = ({ food }) => {
   return (
     <div className="app-food-card">
-      <div className="app-food-card-img">
-          <Image src='/images/fakeImagesFood/mafe-estudio-LV2p9Utbkbw-unsplash.jpg' alt="food" width='500' height='500' objectFit="cover" />
-      </div>
-      <h2 className="app-food-card-title">Fiori di zucca</h2>
-      <span className="app-food-card-price">$19.90</span>
-      <p className="app-food-card-desc">
-        Fiori di Zucca with a unique taste. We invite you to enjoy.
-      </p>
+      <Link href={`/product/${food._id}`}>
+        <div className="app-food-card-img">
+          <Image
+            src={food.img}
+            alt="food"
+            width="500"
+            height="500"
+            objectFit="cover"
+          />
+        </div>
+      </Link>
+      <h2 className="app-food-card-title">{food.title}</h2>
+      <span className="app-food-card-price">${food.prices[0]}</span>
+      <p className="app-food-card-desc">{food.desc}</p>
     </div>
   );
 };

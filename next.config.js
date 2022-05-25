@@ -1,7 +1,5 @@
 module.exports = {
-    reactStrictMode: true,
-    images: {
-        domains: ["images.unsplash.com"],
-        formats: ["image/webp"],
-    },
-};
+    images:{
+      domains:["res.cloudinary.com", "images.unsplash.com"]
+    }
+  }

@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 /* Color */
-$primaryColor: #d1411e;
-$secondaryColor: #828282;
+$primaryColor: #dcca87;
+$secondaryColor: #0C0B08;
 $headingColor: $secondaryColor;
+$grayColor: #AAAAAA;
+$grayDarkColor: #0c0c0c;
 $titleColor: #666;
 $titleDarkColor: #222;
 $titleLightColor: #777;
@@ -13,14 +15,13 @@ $textLightColor2: #fbfbfb;
 $grayLightColor: #C4C4C4;
 $grayLightColor2: #D1D5DB;
 $grayLightColor3: #d3d3d3;
-$grayDarkColor: #424444;
 $stripeBlueColor: #0570DE;
 $purpleColor: #635BFF;
 $btnPrimaryColor: #233EAE;
 $btnPrimaryLightColor: #dee4ff;
 $greenColor: #319C1F;
 $yellowColor: #b7903c;
-$borderColor: #c6c6c6;
+$borderColor: #F5EFDB;
 $shadowCard: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 
@@ -31,6 +32,7 @@ $container-width: 1200px;
 
 /* Structure desktop */
 $headerHeightDesktop: 100px;
+$footerHeightDesktop: 1174px;
 
 /* Structure Mobile */
 $headerHeightMobile: 76px;
@@ -38,9 +40,9 @@ $navbarHeightMobile: 57px;
 $sidebarWidthMobile: 248px;
 $inputHeight: 48px;
 
-
 /* Font */
-$primaryFont: 'Roboto', sans-serif;
+$cormorantFont: 'Cormorant Upright', serif;
+$openSansFont: 'Open Sans', sans-serif;
 
 /* BreakPoint */
 // Mobile App

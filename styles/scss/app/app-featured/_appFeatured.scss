@@ -1,27 +1,128 @@
 .app-featured {
   width: 100%;
   height: calc(50vh - $headerHeightDesktop);
+  padding-top: 49px;
   @include sm {
     height: calc(100vh - $headerHeightDesktop);
   }
-  .app-featured-image {
-    width: 100%;
+  .app-slider {
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
     height: 100%;
+    display: none;
+    &.active {
+      display: flex;
+    }
+    &-content {
+      flex: 1;
+      @include flexCenterY;
+      align-items: flex-start;
+      @include animation(slideContent .4s linear .6s backwards);
+      h5 {
+        font-size: 23px;
+        font-family: $cormorantFont;
+        color: white;
+        margin-bottom: 8px;
+      }
+      h1 {
+        font-size: 90px;
+        font-family: $cormorantFont;
+        color: $primaryColor;
+        font-weight: 700;
+        width: 453px;
+        margin: 8px 0 32px;
+      }
+      p {
+        @include text16;
+        color: $grayColor;
+        line-height: 1.6;
+        width: 453px;
+        margin-bottom: 32px;
+      }
+      button {
+        margin: unset;
+      }
+    }
+    &-image {
+      position: relative;
+      flex: 1;
+      // max-width: 650px;
+      height: 736px;
+      padding: 24px 24px 24px 0;
+      &-wrapper {
+        position: absolute;
+        z-index: 3;
+        width: calc(100% - 24px);
+        height: calc(100% - 48px);
+        @include animation(slideImage .4s linear .5s backwards);
+      }
+      &::after {
+        content: '';
+        top: 0;
+        right: 0;
+        display: block;
+        position: absolute;
+        width: 435px;
+        height: 435px;
+        background: $primaryColor;
+        @include animation(slideBlock1 .4s linear);
+      }
+      &::before {
+        content: '';
+        bottom: 0;
+        left: -24px;
+        display: block;
+        position: absolute;
+        width: 435px;
+        height: 435px;
+        background: $primaryColor;
+        @include animation(slideBlock2 .4s linear);
+      }
+    }
   }
-  .swiper {
-    width: 100%;
-    height: 100%;
-  }
+}
 
-  .swiper .swiper-wrapper {
-    @include translate3d((0px, 0px, 0px));
-  }
+// .swiper {
+//   width: 100%;
+//   height: 100%;
+// }
 
-  .swiper-slide {
-    width: 100%;
+// .swiper .swiper-wrapper {
+//   @include translate3d((0px, 0px, 0px));
+// }
+
+// .swiper-slide {
+//   width: 100%;
+// }
+// .swiper-button-next,
+// .swiper-button-prev {
+//   color: white;
+// }
+
+@keyframes slideContent {
+  0% {
+    opacity: 0;
+    @include translate(-50px, 0)
   }
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: white;
+}
+
+@keyframes slideImage {
+  0% {
+    opacity: 0;
+    @include translate(50px, 0)
+  }
+}
+@keyframes slideBlock1 {
+  0% {
+    opacity: 0;
+    @include translate(50px, -50px)
+  }
+}
+@keyframes slideBlock2 {
+  0% {
+    opacity: 0;
+    @include translate(-50px, 50px)
   }
 }

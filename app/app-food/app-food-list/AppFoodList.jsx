@@ -1,7 +1,7 @@
 import React from "react";
 import AppFoodCard from "../app-food-card/AppFoodCard";
 
-const AppFoodList = () => {
+const AppFoodList = ({ FoodList }) => {
   return (
     <div className="app-food-list">
       <h1>The best food in town</h1>
@@ -11,12 +11,9 @@ const AppFoodList = () => {
         will definitely bring a great experience for you.
       </p>
       <div className="app-food-list-wrapper">
-          <AppFoodCard />
-          <AppFoodCard />
-          <AppFoodCard />
-          <AppFoodCard />
-          <AppFoodCard />
-          <AppFoodCard />
+        {FoodList.length !== 0
+          ? FoodList.map((food) => <AppFoodCard key={food._id} food={food} />)
+          : ""}
       </div>
     </div>
   );

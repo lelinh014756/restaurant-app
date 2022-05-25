@@ -1,16 +1,52 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import ControlButton from '../../app/app-controls/app-control-button/ControlButton';
+import ControlButton from "../../app/app-controls/app-control-button/ControlButton";
+import axios from "axios";
+// Hook Import
+import { useDispatch } from "react-redux";
+// Redux Import
+import { cartAddAction } from "../../utils/redux/actions/cartActions";
 
-const Product = () => {
+const sizes = ["M", "L", "XL"];
+
+const Product = ({ food }) => {
+  // Hook
+  const [price, setPrice] = useState(food.prices[0]);
   const [size, setSize] = useState(0);
-  const food = {
-    id: 1,
-    img: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=710&q=80",
-    name: "Sandwich with boiled egg",
-    sizes: ["M", "L", "XL"],
-    price: [19.9, 23.9, 27.9],
-    desc: "Hi! Welcome to Restaurant Gericht. The sandwich was designed to perfection. With an irresistible taste. Wishing you a delicious.",
+  const [extras, setExtras] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+
+  const changePrice = (n) => {
+    setPrice(price + n);
+  };
+
+  const HandleChange = (e, option) => {
+    const checked = e.target.checked;
+    if (checked) {
+      setExtras((prev) => [...prev, option]);
+      changePrice(option.price);
+    } else {
+      setExtras(extras.filter((extras) => extras._id !== option._id));
+      changePrice(-option.price);
+    }
+  };
+
+  const HandleSize = (sizeIndex) => {
+    const difference = food.prices[sizeIndex] - food.prices[size];
+    setSize(sizeIndex);
+    changePrice(difference);
+  };
+
+  const HandleAddCart = () => {
+    dispatch(
+      cartAddAction({
+        ...food,
+        extras,
+        price,
+        quantity,
+      })
+    );
   };
   return (
     <div className="product">
@@ -25,17 +61,17 @@ const Product = () => {
         </div>
       </div>
       <div className="product-information">
-        <h1 className="product-information-name">{food.name}</h1>
-        <span className="product-information-price">${food.price[size]}</span>
+        <h1 className="product-information-name">{food.title}</h1>
+        <span className="product-information-price">${price}</span>
         <p className="product-information-desc">{food.desc}</p>
         <h3 className="product-information-choose">Choose the size</h3>
         <ul className="product-information-sizes">
-          {food.sizes.length !== 0
-            ? food.sizes.map((size, index) => (
+          {sizes.length !== 0
+            ? sizes.map((size, index) => (
                 <li
                   key={index}
                   className="product-information-size"
-                  onClick={() => setSize(index)}
+                  onClick={() => HandleSize(index)}
                 >
                   {size}
                 </li>
@@ -46,51 +82,31 @@ const Product = () => {
           Choose additional ingredients
         </h3>
         <div className="product-information-ingredients">
-          <div className="product-information-option">
-            <input
-              type="checkbox"
-              id="double"
-              name="double"
-              className="product-information-checkbox"
-            />
-            <label htmlFor="double">Double Ingredients</label>
-          </div>
-          <div className="product-information-option">
-            <input
-              type="checkbox"
-              id="cheese"
-              name="cheese"
-              className="product-information-checkbox"
-            />
-            <label htmlFor="double">Extra Cheese</label>
-          </div>
-          <div className="product-information-option">
-            <input
-              type="checkbox"
-              id="spicy"
-              name="spicy"
-              className="product-information-checkbox"
-            />
-            <label htmlFor="double">Spicy Sauce</label>
-          </div>
-          <div className="product-information-option">
-            <input
-              type="checkbox"
-              id="garlic"
-              name="garlic"
-              className="product-information-checkbox"
-            />
-            <label htmlFor="double">Garlic Sauce</label>
-          </div>
+          {food.extraOptions.length !== 0
+            ? food.extraOptions.map((option) => (
+                <div className="product-information-option" key={option._id}>
+                  <input
+                    type="checkbox"
+                    id={option.text}
+                    name={option.text}
+                    className="product-information-checkbox"
+                    onChange={(e) => HandleChange(e, option)}
+                  />
+                  <label htmlFor="double">{option.text}</label>
+                </div>
+              ))
+            : ""}
         </div>
         <div className="product-information-actions">
           <input
             type="number"
-            defaultValue={1}
+            min='1'
+            value={quantity}
             className="product-information-quantity input"
+            onChange={(e) => setQuantity(e.target.value)}
           />
-          <ControlButton className={'btn-primary'}>
-              Add to cart
+          <ControlButton className={"btn-primary"} onClick={HandleAddCart}>
+            Add to cart
           </ControlButton>
         </div>
       </div>
@@ -99,3 +115,14 @@ const Product = () => {
 };
 
 export default Product;
+
+export const getServerSideProps = async ({ params }) => {
+  const res = await axios.get(
+    `http://localhost:3000/api/products/${params.id}`
+  );
+  return {
+    props: {
+      food: res.data,
+    },
+  };
+};

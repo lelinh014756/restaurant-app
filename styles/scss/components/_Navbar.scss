@@ -1,71 +1,76 @@
 .navbar {
   height: 100%;
-  padding-inline: 50px;
+  max-width: 1680px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   @include flexBetweenX;
-  .navbar-item-contact {
+  .navbar-item-logo {
     flex: 3;
     @include sm {
       flex: 1;
     }
-    display: flex;
-    align-items: center;
-    & i {
-      width: 50px;
-      height: 50px;
-      @include rounded(50%);
-      padding: 10px;
-      background-color: white;
-      & svg path {
-        stroke: $primaryColor;
-      }
-    }
-    &-texts {
-      color: white;
-      margin-left: 20px;
-      & h4 {
-        @include text12;
-        font-weight: 500;
-      }
-      & p {
-        @include text20;
-        font-weight: bold;
-      }
-    }
+    font-size: 44px;
+    font-weight: 500;
+    font-family: $cormorantFont;
+    text-transform: uppercase;
+    color: white;
   }
   .navbar-item-list {
     flex: 3;
     display: none;
-    gap: 0 40px;
+    gap: 0 32px;
     color: white;
     @include sm {
       @include flexCenterX;
     }
     & li {
-      font-weight: 500;
       cursor: pointer;
+      @include text16;
+      a {
+        color: white;
+      }
     }
   }
-  .navbar-item-cart {
-    display: flex;
-    flex: 1;
-    justify-content: flex-end;
-    position: relative;
-    cursor: pointer;
-    & i svg path {
-      stroke: white;
+  .navbar-item-option {
+    @include flexCenterX;
+    gap: 0 50px;
+    &-authentication {
+      display: flex;
+      align-items: center;
+      gap: 0 8px;
+      @include text16;
+      color: white;
+      a {
+        color: white;
+      }
     }
-    &-counter {
-      position: absolute;
-      top: -8px;
-      right: -10px;
-      width: 20px;
-      height: 20px;
-      padding: 3px;
-      @include rounded(50%);
-      background-color: white;
-      @include flexCenterX;
-      color: $primaryColor;
-      font-weight: bold;
+    &-table a {
+      color: white;
+      @include text16;
+    }
+    &-cart {
+      display: flex;
+      flex: 1;
+      justify-content: flex-end;
+      position: relative;
+      cursor: pointer;
+      & i svg path {
+        stroke: white;
+      }
+      &-counter {
+        position: absolute;
+        top: -8px;
+        right: -10px;
+        width: 20px;
+        height: 20px;
+        padding: 3px;
+        @include rounded(50%);
+        background-color: white;
+        @include flexCenterX;
+        color: $primaryColor;
+        font-weight: bold;
+      }
     }
   }
 }

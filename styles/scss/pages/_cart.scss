@@ -64,7 +64,7 @@
     margin-top: 16px;
     @include flexCenterY;
     @include sm {
-      display: block;
+      display: table;
     }
     thead tr {
       display: none;
@@ -155,5 +155,12 @@
     margin-top: 20px;
     font-size: 14px;
     text-transform: uppercase;
+  }
+  .cart-right-paymentMethods {
+    display: flex;
+    flex-direction: column;
+  }
+  .cart-right-payButton {
+    margin: 10px 0 6px;
   }
 }

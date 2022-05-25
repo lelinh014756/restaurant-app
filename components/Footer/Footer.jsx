@@ -1,61 +1,74 @@
 import React from "react";
 import Image from "next/image";
+import ControlButton from "../../app/app-controls/app-control-button/ControlButton";
+import ControlText from "../../app/app-controls/app-control-input/ControlText";
+import Logo from "../../public/images/svg/Logo";
+import IconSpoonRow from "../../public/icons/svg/IconSpoonRow";
+import IconFacebook from "../../public/icons/svg/IconFacebook";
+import IconTwitter from "../../public/icons/svg/IconTwitter";
+import IconInstagram from "../../public/icons/svg/IconInstagram";
+import IconStick from "../../public/icons/svg/IconStick";
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-item">
-        <div className="footer-item-background">
-          <Image
-            src="https://images.unsplash.com/photo-1562601579-599dec564e06?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-            alt="background-footer"
-            priority
-            objectFit="cover"
-            layout="fill"
-          />
+      <div className="footer-logo">
+        <Logo />
+      </div>
+      <div className="footer-form">
+        <h4>Newsletter</h4>
+        <IconSpoonRow />
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>And never miss latest Updates!</p>
+        <div className="footer-form-group">
+          <ControlText placeholder={"Email Address"} />
+          <ControlButton className={"btn-primary"}>Subscribe</ControlButton>
         </div>
       </div>
-      <div className="footer-item">
-        <div className="footer-item-card">
-          <h3 className="footer-item-motto">
-            Oh yes, We did. The Gericht Restaurant, Well Backend slice of
-            Restaurant.
-          </h3>
+      <div className="footer-background">
+        <div className="footer-info">
+          <div className="footer-info-item">
+            <h4>Contact Us</h4>
+            <p>
+              9 W 53rd St, New York, NY 10019, USA <br />
+              <br />
+              +8 437-298-8644 <br /> +1 212-555-1230
+            </p>
+          </div>
+          <div className="footer-info-item mid">
+            <h1>Gerícht</h1>
+            <p>
+              ”The best way to find yourself is to lose yourself in the service
+              of others.”
+            </p>
+            <IconSpoonRow />
+            <ul className="footer-info-item-socials">
+              <li>
+                <IconFacebook />
+              </li>
+              <li>
+                <IconTwitter />
+              </li>
+              <li>
+                <IconInstagram />
+              </li>
+            </ul>
+          </div>
+          <div className="footer-info-item">
+            <h4>Working Hours</h4>
+            <p>
+              Monday-Friday:
+              <br />
+              08:00 am -12:00 am <br /> <br /> Saturday-Sunday: <br />
+              07:00am -11:00 pm
+            </p>
+          </div>
         </div>
-        <div className="footer-item-card">
-          <h2 className="footer-item-title">Find our Restaurant</h2>
-          <p className="footer-item-text">
-            1654 R. Don Road #304.
-            <br /> NewYork, 85022
-            <br /> (602) 867-1010
-          </p>
-          <p className="footer-item-text">
-            2356 K. Laquie Rd #235.
-            <br /> NewYork, 85022
-            <br /> (602) 867-1010
-          </p>
-          <p className="footer-item-text">
-            1614 E. Erwin St #104.
-            <br /> NewYork, 85022
-            <br /> (602) 867-1010
-          </p>
-          <p className="footer-item-text">
-            1614 W. Caroll St #125.
-            <br /> NewYork, 85022
-            <br /> (602) 867-1010
-          </p>
-        </div>
-        <div className="footer-item-card">
-          <h2 className="footer-item-title">Working Hours</h2>
-          <p className="footer-item-text">
-            MONDAY UNTIL FRIDAY
-            <br /> 9:00 - 22:00
-          </p>
-          <p className="footer-item-text">
-            SATURDAY - SUNDAY
-            <br /> 12:00 - 24:00
-          </p>
-        </div>
+        <p className="footer-copyright">2021 Gerícht. All Rights reserved.</p>
+      </div>
+      <div className="footer-tool">
+        <IconStick />
+        <p>Top</p>
       </div>
     </footer>
   );

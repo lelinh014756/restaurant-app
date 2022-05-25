@@ -1,0 +1,49 @@
+.admin {
+  padding: 50px;
+  display: flex;
+  &-item {
+    flex: 1;
+    position: relative;
+    table {
+      width: 100%;
+      border-spacing: 20px;
+      text-align: left;
+      border-collapse: separate;
+      thead tr th {
+        font-weight: bold;
+      }
+      tbody tr td {
+        vertical-align: middle;
+      }
+      img {
+        @include rounded(50%);
+      }
+      button {
+        color: white;
+        padding: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+  &-btn {
+    position: absolute;
+    top: 0;
+    right: 100px;
+  }
+  &-title {
+    @include text36;
+    font-weight: bold;
+  }
+  &-action {
+    &-edit {
+      background-color: teal;
+      margin-right: 10px;
+    }
+    &-delete {
+      background-color: crimson;
+    }
+    &-nextStage {
+      background-color: blue;
+    }
+  }
+}
